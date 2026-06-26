@@ -83,45 +83,6 @@ cd spam-email-detection
 python spam_email_detection.py
 ```
 
----
-
-## 💻 𝐂𝐨𝐝𝐞
-
-```python
-from sklearn.feature_extraction.text import TfidfVectorizer
-from sklearn.linear_model import LogisticRegression
-
-emails = [
-    "Congratulations! You have won a free iPhone",
-    "Claim your prize now",
-    "Limited time offer, click here",
-    "Meeting scheduled for tomorrow",
-    "Please submit the assignment",
-    "Let's have lunch together"
-]
-
-labels = [1, 1, 1, 0, 0, 0]
-
-vectorizer = TfidfVectorizer()
-X = vectorizer.fit_transform(emails)
-
-model = LogisticRegression()
-model.fit(X, labels)
-
-new_email = input("Enter the email message: ")
-
-new_email_vector = vectorizer.transform([new_email])
-
-prediction = model.predict(new_email_vector)
-
-if prediction[0] == 1:
-    print("Spam Email")
-else:
-    print("Not Spam Email")
-```
-
----
-
 ## 📸 𝐒𝐚𝐦𝐩𝐥𝐞 𝐎𝐮𝐭𝐩𝐮𝐭
 
 ### Example 1
